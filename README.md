@@ -2,20 +2,21 @@
 
 ## users テーブル
 
-| Column           | Type   | Options     |
-| ---------------- | ------ | ----------- |
-| nickname         | string | null: false |
-| email            | string | null: false |
-| password         | string | null: false |
-| family_name      | string | null: false |
-| first_name       | string | null: false |
-| family_name_kana | string | null: false |
-| first_name_kana  | string | null: false |
-| birthday         | date   | null: false |
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| nickname           | string | null: false |
+| email              | string | null: false |
+| password           | string | null: false |
+| encrypted_password | string | null: false |
+| family_name        | string | null: false |
+| first_name         | string | null: false |
+| family_name_kana   | string | null: false |
+| first_name_kana    | string | null: false |
+| birthday           | date   | null: false |
 
 ### Association
 
-- has_many :product
+- has_many :products
 - belongs_to :destination
 - belongs_to :card
 
@@ -24,10 +25,6 @@
 | Column           | Type    | Options                        |
 | ---------------- | ------- | ------------------------------ |
 | user_id          | integer | null: false, foreign_key: true |
-| family_name      | string  | null: false                    |
-| first_name       | string  | null: false                    |
-| family_name_kana | string  | null: false                    |
-| first_name_kana  | string  | null: false                    |
 | post_code        | string  | null: false                    |
 | prefecture       | string  | null: false                    |
 | city             | string  | null: false                    |
@@ -37,18 +34,7 @@
 
 ### Association
 
-- belongs_to :users
-
-## card テーブル
-
-| Column      | Type    | Options                        |
-| ----------- | --------| ------------------------------ |
-| user_id     | integer | null: false, foreign_key: true |
-| customer_id | string  | null: false                    |
-| card_id     | string  | null: false                    |
-
-### Association
-
+- has_many :products
 - belongs_to :users
 
 ## product テーブル
@@ -69,16 +55,3 @@
 ### Association
 
 - belongs_to :users
-- has_many :images
-
-## images テーブル
-
-| Column     | Type    | Options                        |
-| ---------- | --------| ------------------------------ |
-| image      | string  | null: false                    |                  |
-| product_id | integer | null: false, foreign_key: true |
-
-
-### Association
-
-- belongs_to :product
