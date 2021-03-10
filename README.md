@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :products
-- has_many :item_purchase
+- has_many :item_purchases
 
 ## destinations テーブル
 
@@ -32,7 +32,7 @@
 
 ### Association
 
-- has_one :item_purchases
+- belongs_to :item_purchases
 - belongs_to_active_hash :prefecture
 
 ## products テーブル
@@ -65,4 +65,4 @@
 
 - belongs_to :user
 - belongs_to :product
-- belongs_to :destination
+- has_one :destination
