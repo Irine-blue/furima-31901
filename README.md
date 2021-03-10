@@ -17,10 +17,8 @@
 
 - has_many :products
 - has_many :item_purchase
-- belongs_to :destination
-- belongs_to :card
 
-## destination テーブル
+## destinations テーブル
 
 | Column           | Type    | Options                        |
 | ---------------- | ------- | ------------------------------ |
@@ -34,40 +32,37 @@
 
 ### Association
 
-- has_many :products
-- belongs_to :users
+- has_one :item_purchases
 - belongs_to_active_hash :prefecture
 
-## product テーブル
+## products テーブル
 
-| Column        | Type    | Options                        |
-| ------------- | --------| ------------------------------ |
-| name          | string  | null: false                    |                  |
-| price         | integer | null: false                    |
-| description   | text    | null: false                    |
-| status        | string  | null: false                    |
-| type          | string  | null: false                    |
-| shipping_cost | integer | null: false                    |
-| shipping_days | integer | null: false                    |
-| prefecture_id | integer | null: false                    |
-| shipping_id   | integer | null: false,                   |
-| user_id       | integer | null: false, foreign_key: true |
+| Column           | Type    | Options                        |
+| ---------------- | --------| ------------------------------ |
+| name             | string  | null: false                    |                  |
+| price            | integer | null: false                    |
+| description      | text    | null: false                    |
+| status_id        | integer | null: false                    |
+| type_id          | integer | null: false                    |
+| shipping_cost_id | integer | null: false                    |
+| shipping_days_id | integer | null: false                    |
+| prefecture_id    | integer | null: false                    |
+| user_id          | integer | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :item_purchase
+- has_one :item_purchase
 
 ## item_purchaseテーブル
 
-| Column        | Type    | Options                       |
-| ------------- | --------| ----------------------------- |
-| product       | integer | null: false, foreign_key:true |                  |
-| user          | integer | null: false, foreign_key:true |
+| Column     | Type    | Options                       |
+| ---------- | --------| ----------------------------- |
+| product_id | integer | null: false, foreign_key:true |                  |
+| user_id    | integer | null: false, foreign_key:true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :product
-- belongs_to :
-
+- belongs_to :destination
