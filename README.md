@@ -22,7 +22,7 @@
 
 | Column           | Type    | Options                        |
 | ---------------- | ------- | ------------------------------ |
-| user_id          | integer | null: false, foreign_key: true |
+| item_purchase_id | integer | null: false, foreign_key: true |
 | post_code        | string  | null: false                    |
 | prefecture_id    | integer | null: false                    |
 | city             | string  | null: false                    |
@@ -32,7 +32,7 @@
 
 ### Association
 
-- belongs_to :item_purchases
+- belongs_to :item_purchase
 - belongs_to_active_hash :prefecture
 
 ## products テーブル
